@@ -22,10 +22,10 @@ jobs:
     - name: Sync files to S3
       uses: jakejarvis/s3-sync-action@master
       with:
-        args: --acl public-read --follow-symlinks --delete
+        args: --acl public-read --follow-symlinks --exclude
         # args: --exact-timestamps
-      env:
-        SOURCE_DIR: './'
+      # env:
+      #   SOURCE_DIR: './'
         # DEST_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
 
 
@@ -47,3 +47,4 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_REGION: 'us-west-1'   # optional: defaults to us-east-1
+        SOURCE_DIR: './'
