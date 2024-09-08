@@ -18,7 +18,7 @@ jobs:
       with:
         args: --acl public-read --delete --cache-control "max-age=31536000"
       env:
-        SOURCE_DIR: '.'  # The directory containing index.html and style.css
+        SOURCE_DIR: './'  # The directory containing index.html and style.css
         AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}  # Name of your S3 bucket
         AWS_REGION: 'us-west-1'  # Optional, specify if needed
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
