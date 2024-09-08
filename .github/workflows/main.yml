@@ -21,8 +21,8 @@ jobs:
 
     - name: Sync files to S3
       uses: jakejarvis/s3-sync-action@master
-      with:
-        args: --exact-timestamps
+      # with:
+      #   args: --exact-timestamps
       env:
         # SOURCE_DIR: './'
         DEST_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
