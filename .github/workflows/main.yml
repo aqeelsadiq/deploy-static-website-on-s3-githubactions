@@ -9,8 +9,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - uses: jakejarvis/s3-sync-action@master
+    - name: Checkout code
+      uses: actions/checkout@v3
 
     - name: Set up AWS CLI
       uses: aws-actions/configure-aws-credentials@v2
@@ -19,7 +19,15 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-west-1
 
-    - name: Upload to S3
+    - name: Sync files to S3
+      uses: jakejarvis/s3-sync-action@v1
+      with:
+        args: --exact-timestamps
+      env:
+        SOURCE_DIR: './'
+        DEST_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+
+    - name: Upload specific file to S3
       run: aws s3 cp ./style.css s3://your-bucket-name/style.css
       env:
         AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
