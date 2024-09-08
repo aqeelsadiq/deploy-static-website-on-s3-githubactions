@@ -24,7 +24,7 @@ jobs:
       with:
         args: --exact-timestamps
       env:
-        SOURCE_DIR: './'
+        # SOURCE_DIR: './'
         DEST_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
 
     - name: Upload specific file to S3
