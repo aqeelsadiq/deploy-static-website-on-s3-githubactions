@@ -28,7 +28,7 @@ jobs:
       #   DEST_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
 
     - name: Upload specific file to S3
-      run: aws s3 cp ./style.css s3://aqeel-demo-static-website-hosting/style.css
+      run: aws s3 cp ./style.css s3://$AWS_S3_BUCKET/style.css
       env:
         AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
