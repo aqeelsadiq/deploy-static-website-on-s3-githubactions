@@ -1,4 +1,4 @@
-name: Upload a static Website
+name: Upload a static Website is
 
 on:
   push:
